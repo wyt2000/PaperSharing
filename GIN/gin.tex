@@ -4,7 +4,9 @@
 \usepackage{float} 
 \usepackage{subfigure}
 \usepackage{algorithm,algorithmic}
+\usepackage{tikzit}
 
+\input{figs/sample.tikzstyles}
 \usetheme{Madrid}
 \usecolortheme{default}
 
@@ -81,33 +83,50 @@
 %---------------------------------------------------------
 %Example of the \pause command
 \begin{frame}
-  \frametitle{检测图同构的算法}
-  \begin{algorithm}[H]
-    \begin{algorithmic}[1]
-    \IF{$V(G) \ne V(H)$}
-      \RETURN \FALSE
-    \ENDIF
-    \FOR{$v$ in $V(G)$ and $V(H)$}
-      \STATE $L_v^0 = 1$
-    \ENDFOR
-    \FOR{$i=1$ to $|V(G)|$}
-      \FOR{$v$ in $V(G)$ and $V(H)$}
-        \STATE $L_v^i = hash \{ u : u \in \{v\} \cup \mathcal{N}(v) \}$
-      \ENDFOR
-      \IF{there is no change in the partition between $L^i$ and $L^{i-1}$}
-        \STATE \textbf{break}
-      \ENDIF
-    \ENDFOR
-    \IF{the partition of $L_{V(G)}$ = the partition of $L_{V(H)}$}
-      \STATE \RETURN \TRUE
-    \ENDIF
-    \RETURN \FALSE
-    \end{algorithmic}
-    \caption{Weisfeiler-Lehman Test}
-    \label{alg:seq}
-  \end{algorithm}
+  \frametitle{图同构的必要不充分条件}
+  \begin{center}
+    \scalebox{0.8}{
+      \begin{minipage}{1\linewidth}
+        \begin{algorithm}[H]
+        \begin{algorithmic}[1]
+        \IF{$V(G) \ne V(H)$}
+          \RETURN \FALSE
+        \ENDIF
+        \FOR{$v$ in $V(G)$ and $V(H)$}
+          \STATE $L_v^0 = 1$
+        \ENDFOR
+        \FOR{$i=1$ to $|V(G)|$}
+          \FOR{$v$ in $V(G)$ and $V(H)$}
+            \STATE $L_v^i = hash (\{ L_u^{i-1} : u \in \{v\} \cup \mathcal{N}(v) \})$
+          \ENDFOR
+          \IF{the partition of $L_{V(G)}^{i}$ $\ne$ the partition of $L_{V(H)}^{i}$}
+            \RETURN \FALSE
+          \ENDIF
+          \IF{there is no change in the partition between $L^i$ and $L^{i-1}$}
+            \STATE \textbf{break}
+          \ENDIF
+        \ENDFOR
+        \RETURN \TRUE
+        \end{algorithmic}
+        \caption{Weisfeiler-Lehman Test}
+        \label{alg:seq}
+        \end{algorithm}
+      \end{minipage}
+      }
+  \end{center}
 \end{frame}
 %---------------------------------------------------------
+
+%---------------------------------------------------------
+\begin{frame}
+
+  \frametitle{图同构的必要不充分条件}
+  \ctikzfig{figs/WL-1}
+
+
+\end{frame}
+%---------------------------------------------------------
+
 
 \section{Second section}
 
