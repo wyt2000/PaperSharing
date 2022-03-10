@@ -1,0 +1,141 @@
+\documentclass{beamer}
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx} 
+\usepackage{float} 
+\usepackage{subfigure}
+
+
+\usetheme{Madrid}
+\usecolortheme{default}
+
+%------------------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title %optional
+{基于同构测试的图神经网络简介}
+
+\author % (optional)
+{吴钰同}
+
+\date % (optional)
+{\today}
+
+%End of title page configuration block
+%------------------------------------------------------------
+
+
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+
+
+%---------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+\begin{frame}
+\frametitle{目录}
+\tableofcontents
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Weisfeiler-Lehman Test}
+
+%---------------------------------------------------------
+%Changing visivility of the text
+\begin{frame}
+
+  \frametitle{图同构}
+
+  \begin{block}{定义}
+    对于两个无向图 $G$ 和 $H$，若存在它们顶点之间的双射 $f:V(G) \rightarrow V(H)$，
+    使得 $G$ 中的顶点 $u$ 和 $v$ 相邻当且仅当 $H$ 中的顶点 $f(u)$ 和 $f(v)$ 相邻，
+    则称 $G$ 和 $H$ 同构。
+  \end{block}
+  \centering
+  \includegraphics[scale=0.1]{figs/Graph_isomorphism_a.png}
+  \includegraphics[scale=0.2]{figs/Graph_isomorphism_b.png}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+
+%---------------------------------------------------------
+%Example of the \pause command
+\begin{frame}
+In this slide \pause
+
+the text will be partially visible \pause
+
+And finally everything will be there
+\end{frame}
+%---------------------------------------------------------
+
+\section{Second section}
+
+%---------------------------------------------------------
+%Highlighting text
+\begin{frame}
+\frametitle{Sample frame title}
+
+In this slide, some important text will be
+\alert{highlighted} because it's important.
+Please, don't abuse it.
+
+\begin{block}{Remark}
+Sample text
+\end{block}
+
+\begin{alertblock}{Important theorem}
+Sample text in red box
+\end{alertblock}
+
+\begin{examples}
+Sample text in green box. The title of the block is ``Examples".
+\end{examples}
+\end{frame}
+%---------------------------------------------------------
+
+
+%---------------------------------------------------------
+%Two columns
+\begin{frame}
+\frametitle{Two-column slide}
+
+\begin{columns}
+
+\column{0.5\textwidth}
+This is a text in first column.
+$$E=mc^2$$
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
+
+\column{0.5\textwidth}
+This text will be in the second column
+and on a second tought this is a nice looking
+layout in some cases.
+\end{columns}
+\end{frame}
+%---------------------------------------------------------
+
+
+\end{document}
