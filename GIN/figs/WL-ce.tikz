@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=new style 5] (0) at (-9, 1) {};
+		\node [style=new style 5] (1) at (-9, -1) {};
+		\node [style=new style 6] (2) at (-7, 2) {};
+		\node [style=new style 6] (3) at (-7, -2) {};
+		\node [style=new style 7] (4) at (-5, 1) {};
+		\node [style=new style 7] (5) at (-5, -1) {};
+		\node [style=new style 6] (6) at (-3, 2) {};
+		\node [style=new style 6] (7) at (-3, -2) {};
+		\node [style=new style 5] (8) at (-1, 1) {};
+		\node [style=new style 5] (9) at (-1, -1) {};
+		\node [style=new style 5] (10) at (1, 1) {};
+		\node [style=new style 5] (11) at (1, -1) {};
+		\node [style=new style 6] (12) at (3, 2) {};
+		\node [style=new style 6] (13) at (3, -2) {};
+		\node [style=new style 7] (14) at (5, 0) {};
+		\node [style=new style 7] (15) at (7, 0) {};
+		\node [style=new style 6] (16) at (9, 2) {};
+		\node [style=new style 6] (17) at (9, -2) {};
+		\node [style=new style 5] (18) at (11, 1) {};
+		\node [style=new style 5] (19) at (11, -1) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (2);
+		\draw (2) to (4);
+		\draw (4) to (5);
+		\draw (5) to (3);
+		\draw (3) to (1);
+		\draw (1) to (0);
+		\draw (4) to (6);
+		\draw (6) to (8);
+		\draw (9) to (8);
+		\draw (5) to (7);
+		\draw (7) to (9);
+		\draw (10) to (11);
+		\draw (10) to (12);
+		\draw (11) to (13);
+		\draw (12) to (14);
+		\draw (14) to (13);
+		\draw (15) to (16);
+		\draw (16) to (18);
+		\draw (18) to (19);
+		\draw (19) to (17);
+		\draw (17) to (15);
+		\draw (14) to (15);
+	\end{pgfonlayer}
+\end{tikzpicture}

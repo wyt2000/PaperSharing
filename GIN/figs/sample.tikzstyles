@@ -4,10 +4,13 @@
 % \tikzstyle{NAME}=[PROPERTY LIST]
 
 % Node styles
-\tikzstyle{new style 0}=[fill=red, draw=black, shape=circle]
-\tikzstyle{new style 1}=[fill=blue, draw=black, shape=circle]
-\tikzstyle{new style 2}=[fill=yellow, draw=black, shape=circle]
-\tikzstyle{new style 3}=[fill={rgb,255: red,255; green,128; blue,0}, draw=black, shape=circle]
-\tikzstyle{new style 4}=[fill=cyan, draw=black, shape=circle]
+\tikzstyle{new style 0}=[fill=red, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 1}=[fill=blue, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 2}=[fill=yellow, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 3}=[fill={rgb,255: red,128; green,128; blue,0}, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 4}=[fill=cyan, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 5}=[fill=red, draw=black, shape=circle]
+\tikzstyle{new style 6}=[fill=blue, draw=black, shape=circle]
+\tikzstyle{new style 7}=[fill=yellow, draw=black, shape=circle]
 
 % Edge styles
