@@ -267,10 +267,10 @@
 \begin{frame}
 
   \frametitle{图神经网络与 WL-Test 的比较}
-  \begin{block}{定理：图神经网络的表达能力不强于 WL-Test}
+  \begin{alertblock}{定理：图神经网络的表达能力不强于 WL-Test}
     设 $G_1$ 和 $G_2$ 为两个不同构的图，如果一个图神经网络 $\mathcal{A}: \mathcal{G} \rightarrow \mathbb{R}^d$
     将 $G_1$ 和 $G_2$ 映射到不同的嵌入，则 WL-Test 会认为 $G_1$ 和 $G_2$ 不同构。
-  \end{block}
+  \end{alertblock}
   \begin{block}{证明：图神经网络的表达能力不强于 WL-Test}
     以特征向量作为结点的标签，若 WL-Test 认为 $G_1$ 和 $G_2$ 同构，则每一轮迭代 $G_1$ 和 $G_2$ 都有相同的标签集合。
     
@@ -288,7 +288,7 @@
 \begin{frame}
 
   \frametitle{图神经网络与 WL-Test 的比较}
-  \begin{block}{定理：单射图神经网络的表达能力与 WL-Test 等价}
+  \begin{alertblock}{定理：单射图神经网络的表达能力与 WL-Test 等价}
     设 $\mathcal{A}: \mathcal{G} \rightarrow \mathbb{R}^d$ 是一个有充分多层的图神经网络，若满足如下条件：
 
     (1) 更新嵌入向量的过程是单射，即
@@ -299,7 +299,7 @@
 
     则该图神经网络会把任意两个 WL-Test 判断为不同构的图映射到两个不同的嵌入向量。
 
-  \end{block}
+  \end{alertblock}
 
 \end{frame}
 %---------------------------------------------------------
@@ -310,11 +310,11 @@
   \frametitle{图神经网络与 WL-Test 的比较}
   \begin{block}{证明：单射图神经网络的表达能力与 WL-Test 等价}
     设 $G_1$ 和 $G_2$ 经过 $K$ 轮迭代后被 WL-Test 判断为不同构，
-    $\mathcal{A}$ 使用单射函数 $\phi$ 和 $f$ 更新嵌入向量：
+    $\mathcal{A}$ 使用单射 $\phi$ 和 $f$ 更新嵌入向量：
     $$ h_v^{(k)} = \phi(h_v^{(k-1)}, f(\{h_u^{(k-1)} : u \in \mathcal{N}(v)\})) $$
     WL-Test 使用单射哈希函数 $g$ 更新结点标签：
     $$ L_v^{(k)} = g(L_v^{(k-1)}, \{L_u^{(k-1)} : u \in \mathcal{N}(v)\}) $$
-    下证：对于任意轮迭代 $k$，存在单射函数 $\varphi^{(k)}$，使得 $h_v^{(k)} = \varphi^{(k)}(L_v^{(k)})$。
+    下证：对于任意轮迭代 $k$，存在单射 $\varphi^{(k)}$，使得 $h_v^{(k)} = \varphi^{(k)}(L_v^{(k)})$。
 
     $k = 0$ 时，$h_v^{(0)} = L_v^{(0)} = x_v$，故取 $\varphi^{(0)}$ 为恒等映射即可。
 
@@ -328,7 +328,7 @@
 
   \frametitle{图神经网络与 WL-Test 的比较}
   \begin{block}{证明：单射图神经网络的表达能力与 WL-Test 等价}
-    $k \ge 1$ 时，假设第 $k - 1$ 轮迭代时存在单射函数 $\varphi^{(k-1)}$，则
+    $k \ge 1$ 时，假设第 $k - 1$ 轮迭代时存在单射 $\varphi^{(k-1)}$，则
     \begin{align*}
       h_v^k &= \phi(h_v^{(k-1)}, f(\{h_u^{(k-1)} : u \in \mathcal{N}(v)\})) \\
             &= \phi(\varphi^{(k-1)}(L_v^{(k-1)}), f(\{\varphi^{(k-1)}(L_u^{(k-1)}) : u \in \mathcal{N}(v)\})) \\
@@ -336,7 +336,7 @@
             &= \psi \circ g^{-1} g (L_v^{(k-1)}, \{L_u^{(k-1)} : u \in \mathcal{N}(v)\}) \\
             &= \psi \circ g^{-1}(L_v^{(k)})
     \end{align*}
-    其中，$\psi = \phi \circ \varphi^{(k-1)}$ 为单射函数。取 $\varphi^{(k)} = \psi \circ g^{-1}$ 即证。
+    其中，$\psi = \phi \circ \varphi^{(k-1)}$ 为单射。取 $\varphi^{(k)} = \psi \circ g^{-1}$ 即证。
     
     在最后一轮迭代时，WL-Test 得到的 $G_1$ 和 $G_2$ 结点标签集合不相同，说明 $\mathcal{A}$ 得到的嵌入向量集合不相同。
     
@@ -355,9 +355,9 @@
   为使图神经网络具有和 WL-Test 相同的表达能力，需要选取恰当的映射用于图嵌入向量的计算。
   该映射需要满足以下条件：
   \begin{enumerate}
-    \item 当自变量是集合时是良定的，即计算结果与结点顺序无关。
-    \item 是单射的，即不能把两个不同的向量集合映射到同一个向量。
-    \item 是可学习的，即该映射可以表示任意单射函数。
+    \item 当自变量是集合时是良定的，即计算结果与结点顺序无关。 
+    \item 是单射的，即不能把两个不同的向量集合映射到同一个向量。 
+    \item 是可学习的，即该映射可以表示任意单射。
   \end{enumerate}
   $MEAN$ 和 $MAX$ 对集合是良定的，但不是单射。
   \ctikzfig{figs/mean-max}
@@ -369,12 +369,12 @@
 \begin{frame}
 
   \frametitle{构造单射}
-  \begin{block}{定理：使用求和算子能构造可数集上的单射}
+  \begin{alertblock}{定理：使用求和算子能构造可数集上的单射}
     (1) 设特征集合 $\mathcal{X}$ 是可数集，则存在函数 $f: \mathcal{X} \rightarrow \mathbb{R}^n$，使得
     对于 $\mathcal{X}$ 的任意有限大小的子集 $X$，$h(X) = \sum_{x \in X} f(x)$ 是单射。
 
-    (2) 对于任意单射函数 $g(X)$，都存在单射函数$\phi$，使得 $g(X) = \phi(\sum_{x \in X} f(x))$。
-  \end{block}
+    (2) 对于任意单射 $g(X)$，都存在单射$\phi$，使得 $g(X) = \phi(\sum_{x \in X} f(x))$。
+  \end{alertblock}
 
   \begin{block}{证明：使用求和算子能构造可数集上的单射}
     (1) 由于 $\mathcal{X}$ 可数，故存在映射 $Z : \mathcal{X} \rightarrow \mathbb{N}$。
@@ -392,12 +392,12 @@
 \begin{frame}
 
   \frametitle{图同构神经网络结构}
-  \begin{block}{推论：为中心结点的嵌入添加可学习的权重}
+  \begin{alertblock}{推论：为中心结点的嵌入添加可学习的权重}
     (1) 设特征集合 $\mathcal{X}$ 是可数集，则存在函数 $f: \mathcal{X} \rightarrow \mathbb{R}^n$，使得
     对于 $\mathcal{X}$ 的任意元素 $c$ 和有限大小的子集 $X$，$h(X) = (1 - \epsilon) \cdot f(c) + \sum_{x \in X} f(x)$ 是单射。
     
-    (2) 对于任意单射函数 $g(\mathcal{N}(v))$，都存在单射函数$\varphi$，使得 $g(\mathcal{N}(v)) = \varphi((1 + \epsilon) \cdot f(h_v) + \sum_{u \in \mathcal{N}(v)} f(h_u))$.
-  \end{block}
+    (2) 对于任意单射 $g(\mathcal{N}(v))$，都存在单射$\varphi$，使得 $g(\mathcal{N}(v)) = \varphi((1 + \epsilon) \cdot f(h_v) + \sum_{u \in \mathcal{N}(v)} f(h_u))$.
+  \end{alertblock}
   结点嵌入的更新公式可以写为：
   \begin{align*}
     h_v^{(1)} &= \varphi^{(1)}((1 + \epsilon^{(1)}) \cdot f^{(1)}(x_v) + \sum_{u \in \mathcal{N}(v)} f^{(1)}(x_u)) \\
@@ -419,7 +419,7 @@
   \end{align*}
   $k = 1$ 时，由于 $h^0 = x$ 为结点的特征向量，如果取特征向量为独热码，则 $f^{(1)}$ 为恒等映射即满足单射性。
 
-  $k > 1$ 时，将 $f^{(k)} \circ \varphi^{(k-1)}$ 看成一个整体，使用多层感知机拟合任意单射函数，得到图同构神经网络的更新公式：
+  $k > 1$ 时，将 $f^{(k)} \circ \varphi^{(k-1)}$ 看成一个整体，使用多层感知机拟合任意单射，得到图同构神经网络的更新公式：
   $$
     h_v^{(k)} = MLP^{(k)} ((1 + \epsilon^{(k)}) \cdot h_v^{(k-1)} + \sum_{u \in \mathcal{N}(v)} h^{(k-1)}_u))
   $$
@@ -430,54 +430,28 @@
 \end{frame}
 %---------------------------------------------------------
 
-
+\section{分析与比较}
 
 %---------------------------------------------------------
-%Highlighting text
 \begin{frame}
-\frametitle{Sample frame title}
 
-In this slide, some important text will be
-\alert{highlighted} because it's important.
-Please, don't abuse it.
+  \frametitle{非单射算子在某些情况下也可能取得很好的效果}
+  \includegraphics[scale=0.3]{figs/other.png}
+  \begin{enumerate}
+    \item $MEAN$：适用于结点特征丰富，重复率低的任务，如文章主题分类和社区检测。
+    \item $MAX$：适用于不关心结点特征的精确结构和分布，只需要识别代表元素或者骨架的任务，如图像分类。
+  \end{enumerate}
 
-\begin{block}{Remark}
-Sample text
-\end{block}
-
-\begin{alertblock}{Important theorem}
-Sample text in red box
-\end{alertblock}
-
-\begin{examples}
-Sample text in green box. The title of the block is ``Examples".
-\end{examples}
 \end{frame}
 %---------------------------------------------------------
 
-
 %---------------------------------------------------------
-%Two columns
 \begin{frame}
-\frametitle{Two-column slide}
 
-\begin{columns}
+  \frametitle{性能比较}
+  \includegraphics[scale=0.25]{figs/test.png}
 
-\column{0.5\textwidth}
-This is a text in first column.
-$$E=mc^2$$
-\begin{itemize}
-\item First item
-\item Second item
-\end{itemize}
-
-\column{0.5\textwidth}
-This text will be in the second column
-and on a second tought this is a nice looking
-layout in some cases.
-\end{columns}
 \end{frame}
 %---------------------------------------------------------
-
 
 \end{document}
