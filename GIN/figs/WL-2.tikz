@@ -1,15 +1,15 @@
 \begin{tikzpicture}
 	\begin{pgfonlayer}{nodelayer}
-		\node [style=new style 3] (1) at (-7, 0) {1};
-		\node [style=new style 4] (2) at (-7, 5) {1};
-		\node [style=new style 2] (3) at (-7, -5) {1};
+		\node [style=new style 0] (1) at (-7, 0) {1};
+		\node [style=new style 0] (2) at (-7, 5) {1};
+		\node [style=new style 0] (3) at (-7, -5) {1};
 		\node [style=new style 0] (4) at (-3, 2) {1};
-		\node [style=new style 1] (5) at (-3, -2) {1};
-		\node [style=new style 2] (6) at (6, 5) {1};
-		\node [style=new style 4] (7) at (5.5, 0) {1};
-		\node [style=new style 3] (8) at (3, -5) {1};
+		\node [style=new style 0] (5) at (-3, -2) {1};
+		\node [style=new style 0] (6) at (6, 5) {1};
+		\node [style=new style 0] (7) at (5.5, 0) {1};
+		\node [style=new style 0] (8) at (3, -5) {1};
 		\node [style=new style 0] (9) at (9, -1) {1};
-		\node [style=new style 1] (10) at (9, -5) {1};
+		\node [style=new style 0] (10) at (9, -5) {1};
 	\end{pgfonlayer}
 	\begin{pgfonlayer}{edgelayer}
 		\draw (2) to (1);

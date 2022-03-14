@@ -12,5 +12,7 @@
 \tikzstyle{new style 5}=[fill=red, draw=black, shape=circle]
 \tikzstyle{new style 6}=[fill=blue, draw=black, shape=circle]
 \tikzstyle{new style 7}=[fill=yellow, draw=black, shape=circle]
+\tikzstyle{new style 8}=[fill=white, draw=black, shape=circle, minimum size=1.25cm]
+\tikzstyle{new style 9}=[fill=magenta, draw=black, shape=circle, minimum size=1.25cm]
 
 % Edge styles
