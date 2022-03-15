@@ -433,8 +433,30 @@
 \begin{frame}
 
   \frametitle{AAAI-19 Weisfeiler and Leman Go Neural: Higher-Order Graph Neural Networks}
+  \begin{block}{k-WL Test}
+    将图 $G$ 中任意 $k$ 个相邻结点组成的元组 $V(G)^k$ 作为图中的原子对象。定义 $k$ 个结点组成的元组 $s$ 对应的第 $j$ 个邻域为：
+    $$
+      N_j(s) = \{(s_1, ..., s_{j-1}, r, s_{j+1}, ...,s_k) : r \in V(G)\}
+    $$
+    即将第 $j$ 个结点换成其他结点。
+
+    由此定义可以将 WL-Test 扩展到 k-WL Test。首先对每组 $k$ 个结点构成的子图做 1-WL，再给被判断同构的子图赋予相同的初始标签。
+    随后使用如下公式迭代更新第 $t$ 轮的标签值直到收敛：
+    \begin{align*}
+      C_j^{(t)}(s) &= HASH(\{c_{k}^{(t-1)}(s') : s' \in N_j(s)\}) \\
+      c_k^{(t)}(s) &= HASH((c_k^{(t-1)}(s), (C_1^{(t)}(s), ..., C_k^{(t)}(s))))
+    \end{align*}
+    k-WL 利用了多个结点组成的子图的信息，表达能力严格强于 1-WL。
+  \end{block}
+\end{frame}
+%---------------------------------------------------------
+
+%---------------------------------------------------------
+\begin{frame}
+
+  \frametitle{AAAI-19 Weisfeiler and Leman Go Neural: Higher-Order Graph Neural Networks}
+  \includegraphics[scale=0.5]{figs/k-GNN.png}
   \begin{enumerate}
-    \item 将多个结点组成的子图作为原子对象赋予一定的标签，可将 1-WL 扩展为 k-WL。
     \item 类比 k-WL，作者利用子图间的邻接关系将 GNN 拓展到 k-GNN，称之为高阶 GNN。
     \item k-WL 的表达能力强于 1-WL，故高阶 GNN 的表达能力也更强了。
   \end{enumerate}
@@ -446,6 +468,9 @@
 \begin{frame}
 
   \frametitle{ICML-21 Weisfeiler and Lehman Go Topological: Message Passing Simplicial Networks}
+  \begin{center}
+    \includegraphics[scale=0.5]{figs/SWL.png}    
+  \end{center}
   \begin{enumerate}
     \item 二维平面上的图结构难以捕捉高阶信息，故作者将图输入转换成单纯复形（simplicial complexes），再进行消息传递。
     \item 在单纯复形的意义下进行同构测试被称作 SWL，SWL 的表达能力严格强于 WL，且不弱于 3-WL。
@@ -459,6 +484,9 @@
 \begin{frame}
 
   \frametitle{NeurIPS-21 Weisfeiler and Lehman Go Cellular: CW Networks}
+  \begin{center}
+    \includegraphics[scale=0.6]{figs/CWL.png}    
+  \end{center}
   \begin{enumerate}
     \item 图结构中含有完全子图才能被转换成单纯复形，对图结构的要求过于严格。
     \item 本文定义了一种对图结构的提升变换，将对图结构的要求放宽到正则胞复形（regular cell complexes）。
