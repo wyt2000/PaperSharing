@@ -17,7 +17,7 @@
 {基于同构测试的图神经网络简介}
 
 \author % (optional)
-{How Powerful are Graph Neural Networks?(ICLR19)}
+{How Powerful are Graph Neural Networks?}
 
 \date % (optional)
 {\today}
@@ -472,9 +472,8 @@
     \includegraphics[scale=0.5]{figs/SWL.png}    
   \end{center}
   \begin{enumerate}
-    \item 二维平面上的图结构难以捕捉高阶信息，故作者将图输入转换成单纯复形（simplicial complexes），再进行消息传递。
+    \item 二维平面上的图结构难以捕捉高阶信息，故作者将图输入转换成单纯复形\footnote{由点、线段、三角形等单纯形粘合得到的拓扑对象。}（simplicial complexes），再进行消息传递。
     \item 在单纯复形的意义下进行同构测试被称作 SWL，SWL 的表达能力严格强于 WL，且不弱于 3-WL。
-    \item 作者证明了本文提出的模型的表达能力与 SWL 等价。
   \end{enumerate}
 
 \end{frame}
@@ -489,8 +488,7 @@
   \end{center}
   \begin{enumerate}
     \item 图结构中含有完全子图才能被转换成单纯复形，对图结构的要求过于严格。
-    \item 本文定义了一种对图结构的提升变换，将对图结构的要求放宽到正则胞复形（regular cell complexes）。
-    \item 本文提出的模型是目前 paperswithcode 上针对图归约任务的最好结果。
+    \item 本文定义了一种对图结构的提升变换，将对图结构的要求放宽到正则胞复形\footnote{由凸多面体粘合得到的拓扑对象。}（regular cell complexes）。本文提出的模型是目前图归约任务的最好结果。
   \end{enumerate}
 
 \end{frame}
