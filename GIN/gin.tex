@@ -92,7 +92,7 @@
           \RETURN \FALSE
         \ENDIF
         \FOR{$v$ in $V(G)$ and $V(H)$}
-          \STATE $L_v^{(0)} = $ the same color
+          \STATE $L_v^{(0)} = $ the same label
         \ENDFOR
         \FOR{$i=1$ to $|V(G)|$}
           \FOR{$v$ in $V(G)$ and $V(H)$}
@@ -101,7 +101,7 @@
           \IF{$\{L^{(i)}_v : v \in V(G)\} \ne \{L^{(i)}_v : v \in V(H)\}$}
             \RETURN \FALSE
           \ENDIF
-          \IF{no change in the partition between $L^i$ and $L^{i-1}$}
+          \IF{no change in the partition between $L^{(i)}$ and $L^{(i-1)}$}
             \STATE \textbf{break}
           \ENDIF
         \ENDFOR
@@ -367,7 +367,7 @@
   \frametitle{图同构神经网络结构}
   \begin{alertblock}{推论：为中心结点的嵌入添加可学习的权重}
     (1) 设特征集合 $\mathcal{X}$ 是可数集，则存在函数 $f: \mathcal{X} \rightarrow \mathbb{R}^n$，使得
-    对于 $\mathcal{X}$ 的任意元素 $c$ 和有限大小的子集 $X$，$h(X) = (1 - \epsilon) \cdot f(c) + \sum_{x \in X} f(x)$ 是单射。
+    对于 $\mathcal{X}$ 的任意元素 $c$ 和有限大小的子集 $X$，$h(X) = (1 + \epsilon) \cdot f(c) + \sum_{x \in X} f(x)$ 是单射。
     
     (2) 对于任意单射 $g(\mathcal{N}(v))$，都存在单射$\varphi$，使得 $g(\mathcal{N}(v)) = \varphi((1 + \epsilon) \cdot f(h_v) + \sum_{u \in \mathcal{N}(v)} f(h_u))$.
   \end{alertblock}
